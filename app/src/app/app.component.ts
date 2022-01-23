@@ -3,11 +3,14 @@ import { Store } from '@ngrx/store';
 import { map, Observable, tap } from 'rxjs';
 import { GameComponent } from './game/game.component';
 import { Player, ScoreHistory } from './models/player.models';
-import { NetworkStatus } from './services/online.service';
+import { NetworkStatus } from './services/online.observable';
 import { startGame } from './store/actions/gameSettings.actions';
 import {
   player1IncrementScore,
   player2IncrementScore,
+  resetScore,
+  setUser1,
+  setUser2,
 } from './store/actions/players.actions';
 import { selectNetworkStatus } from './store/selectors/gameSettings.selectors';
 import {
@@ -50,5 +53,14 @@ export class AppComponent implements OnInit {
   }
   public startGame(){
     this.store.dispatch(startGame())
+
+  }
+  public login1(){
+    this.store.dispatch(setUser1())
+    this.store.dispatch(resetScore())
+  }
+  public login2(){
+    this.store.dispatch(setUser2())
+    this.store.dispatch(resetScore())
   }
 }

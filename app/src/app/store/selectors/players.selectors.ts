@@ -31,17 +31,13 @@ export const selectPlayers = createSelector(
   ({ player1, player2 }) => ({ player1, player2 })
 );
 
-//Extracting a pipeable operator
+//HIGHLIGHT Extracting a pipeable operator
 export const selectPlayersWithOperators = pipe(
   select(selectPlayers),
-  filter((val) => val.player1 != null && val.player2 != null)
+  filter(({ player1, player2 }) => player1 != null || player2 != null)
 );
 
-export const selectPlayersRxjsOperators = pipe(
-  select(selectPlayers),
-  filter((players) => players?.player1 != null && players.player2 != null)
-);
-
+//HIGHLIGHT Selector with arg
 export const selectLastScoreHistory = (count: number) => {
   return pipe(
     select(selectPlayersScore),
@@ -53,3 +49,28 @@ export const selectLastScoreHistory = (count: number) => {
     }, [] as ScoreHistory[])
   );
 };
+
+export const selectHistory = createSelector(
+  selectPlayersState,
+  ({ history }) => history
+);
+
+export const selectPlayersRxjsOperators = pipe(
+  select(selectPlayers),
+  filter((players) => players?.player1 != null && players.player2 != null)
+);
+
+// export const selectHistorySortedByDate = createSelector(
+//   selectHistory,
+//   (history) => history.sort((a, b) => a.date.getTime() - b.date.getTime())
+// );
+
+export const selectHistorySortedByDate = createSelector(
+  selectHistory,
+  (history) =>
+    history.slice().sort((a, b) => a.date.getTime() - b.date.getTime())
+);
+
+// { history: [ {...} ] }
+selectHistorySortedByDate.release() 
+// { history: null }

@@ -76,8 +76,7 @@ export class GameComponent implements OnInit, OnDestroy {
 
   resetAll(): void {
     this.store.dispatch(resetScore());
-    this.canMoveBall = false;
-    this.canMoveRackets = false;
+
     this.resetBallAndRackets();
   }
 

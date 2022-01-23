@@ -28,20 +28,31 @@
 
   <!-- Terminal -->
   <div class="terminal">
-    <div class="terminal_header">
-      <span class="terminal_player_score">PLAYER</span>
-      <span class="terminal_player_score">PLAYER</span>
+    <div class="terminal_header" *ngIf="(players$ | async)  as players;  else empty">
+      <span class="terminal_player_score">{{players?.player1?.name ?? "WAITING..."}}</span>
+      <span class="terminal_player_score">{{players?.player2?.name ?? "WAITING..." }}</span>
     </div>
     <app-game></app-game>
 
   </div>
   <div class="score_control">
-    <button mat-mini-fab (click)="increaseScorePlayer1()">
-      <mat-icon>add</mat-icon>
+    <div>
+      <button mat-mini-fab (click)="login1()">
+        <mat-icon>login</mat-icon>
+      </button>
+      <button mat-mini-fab (click)="increaseScorePlayer1()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  <div>
+    <button mat-mini-fab (click)="login2()">
+      <mat-icon>login</mat-icon>
     </button>
     <button mat-mini-fab (click)="increaseScorePlayer2()">
       <mat-icon>add</mat-icon>
     </button>
+  </div>
+    
   </div>
 
   <!-- Links -->
@@ -73,6 +84,14 @@
 <ng-template #offline>
   <div class="content offline">
     <h1>PAUSE </h1>
+  </div>
+ 
+</ng-template>
+
+<ng-template #empty>
+  <div class="terminal_header">
+    <span class="terminal_player_score">PRESS START</span>
+    <span class="terminal_player_score">PRESS START</span>
   </div>
  
 </ng-template>

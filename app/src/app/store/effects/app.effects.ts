@@ -4,7 +4,7 @@ import { Actions, createEffect } from '@ngrx/effects';
 
 
 @Injectable()
-export class AppEffects {
+export class PlayersEffects {
 
 
 

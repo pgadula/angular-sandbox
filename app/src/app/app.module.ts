@@ -9,7 +9,7 @@ import { reducers, metaReducers } from './store/reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
-import { AppEffects } from './store/effects/app.effects';
+import { PlayersEffects } from './store/effects/app.effects';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { AppEffects } from './store/effects/app.effects';
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([AppEffects])
+    EffectsModule.forRoot([PlayersEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent]

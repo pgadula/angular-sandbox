@@ -1,22 +1,21 @@
 import { createReducer, on } from '@ngrx/store';
 import { Player } from 'src/app/models/player.models';
 import * as playersActions from '../actions/players.actions';
-export const playersFeatureKey = 'playersKey';
 
 export interface PlayersState {
-  players1Score: number;
-  players1: Player;
-  players2: Player;
-  players2Score: number;
+  player1Score: number;
+  player1: Player;
+  player2: Player;
+  player2Score: number;
   isLoadingPlayer1: boolean;
   isLoadingPlayer2: boolean;
 }
 
 export const initialState: PlayersState = {
-  players1: null,
-  players1Score: 0,
-  players2: null,
-  players2Score: 0,
+  player1: null,
+  player1Score: 0,
+  player2: null,
+  player2Score: 0,
   isLoadingPlayer1: false,
   isLoadingPlayer2: false,
 };
@@ -47,17 +46,17 @@ export const playersReducer = createReducer(
     ...state,
     isLoadingPlayer2: false,
   })),
-  on(playersActions.player1IncreaseScore, (state) => ({
+  on(playersActions.player1IncrementScore, (state) => ({
     ...state,
-    players1Score: state.players1Score+1,
+    player1Score: state.player1Score+1,
   })),
-  on(playersActions.player2IncreaseScore, (state) => ({
+  on(playersActions.player2IncrementScore, (state) => ({
     ...state,
-    players2Score: state.players2Score+1,
+    player2Score: state.player2Score+1,
   })),  
   on(playersActions.resetScore, (state) => ({
     ...state,
-    players1Score: 0,
-    players2Score: 0,
+    player1Score: 0,
+    player2Score: 0,
   }))
 );

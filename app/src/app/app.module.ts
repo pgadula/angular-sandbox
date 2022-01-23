@@ -9,21 +9,25 @@ import { reducers, metaReducers } from './store/reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
-import { PlayersEffects } from './store/effects/app.effects';
+import { PlayersEffects } from './store/effects/players.effects';
+import { MaterialModule } from './material/material.module';
+import { GameComponent } from './game/game.component';
+import { OnlineEffects } from './store/effects/online.effects';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({}, {}),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
+    EffectsModule.forRoot([PlayersEffects, OnlineEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([PlayersEffects]),
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

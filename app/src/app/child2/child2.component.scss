@@ -1,0 +1,21 @@
+.container{
+    background: lightskyblue;
+}
+.children{
+    display: flex;
+    position: absolute;
+    justify-content: space-around;
+}
+
+.child{
+    position: absolute;
+    top: 200px;
+}
+
+.child:nth-child(1){
+    left: -200px;
+}
+
+.child:nth-child(2){
+    left: 150px;
+}

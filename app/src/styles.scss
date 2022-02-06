@@ -1,4 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { background: #f5f5f5;margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.counter{
+    font-weight: 600;
+    text-align: center;
+    padding: 0.5em;
+
+}
+
+h2{
+    text-align: center;
+}
+.container{
+    height: 170px;
+    width: 170px;
+    padding: 2em;
+    overflow: auto;
+    border-radius: 5%;
+}
+
+
+@keyframes flash {
+    0% {
+      opacity: 1;
+    }
+  
+    50% {
+      opacity: 0.8;
+    }
+    
+    
+    100% {
+      opacity: 1;
+    }
+}
+
+.highlight{
+    background: lightgreen;
+    animation: flash 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+}
+button{
+    background: lightyellow;
+    padding: 0.5em 0.8em;
+    border: none;
+    text-transform: capitalize;
+    border-radius: 10%;
+    cursor: pointer;
+    font-weight: 600;
+}
+button:hover{
+    background: rgb(255, 255, 145);
+
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5em;
+}

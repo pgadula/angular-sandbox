@@ -1,0 +1,12 @@
+<div appHighlight class="container">
+  <h2>App-child-4</h2>
+  <span class="counter">doCheck: {{ counter }}</span>
+  <div>
+    <label>steam {{control.value ? "on" : 'off'}}</label>
+    <input type="checkbox" [formControl]="control" />
+    <div>timer {{ stream$ | push }}</div>
+  </div>
+ 
+
+  <div></div>
+</div>

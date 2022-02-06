@@ -13,11 +13,35 @@ import { PlayersEffects } from './store/effects/players.effects';
 import { MaterialModule } from './material/material.module';
 import { GameComponent } from './game/game.component';
 import { OnlineEffects } from './store/effects/online.effects';
-
+import { LetModule, PushModule } from '@rx-angular/template';
+import { Child1Component } from './child1/child1.component';
+import { Child2Component } from './child2/child2.component';
+import { Child3Component } from './child3/child3.component';
+import { Child4Component } from './child4/child4.component';
+import { HighlightDirective } from './highlight.directive';
+import { ComponentNameDirective } from './component-name.directive';
+import { Child5Component } from './child5/child5.component';
+import { Child6Component } from './child6/child6.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [AppComponent, GameComponent],
+  declarations: [
+    AppComponent,
+    GameComponent,
+    Child1Component,
+    Child2Component,
+    Child3Component,
+    Child4Component,
+    HighlightDirective,
+    ComponentNameDirective,
+    Child5Component,
+    Child6Component,
+  ],
   imports: [
+    LetModule,
+    PushModule,
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers, {

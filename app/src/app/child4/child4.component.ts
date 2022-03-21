@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DoCheck, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { filter, interval, mergeMap, takeUntil, tap } from 'rxjs';
 
@@ -6,6 +6,7 @@ import { filter, interval, mergeMap, takeUntil, tap } from 'rxjs';
   selector: 'app-child4',
   templateUrl: './child4.component.html',
   styleUrls: ['./child4.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Child4Component implements DoCheck, OnInit {
   public stream$;

@@ -4,6 +4,7 @@ import { ChangeDetectionStrategy, Component, DoCheck, OnInit } from '@angular/co
   selector: 'app-child3',
   templateUrl: './child3.component.html',
   styleUrls: ['./child3.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Child3Component implements DoCheck {
   public counter = 0;

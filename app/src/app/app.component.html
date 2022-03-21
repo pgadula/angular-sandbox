@@ -1,15 +1,14 @@
 
-<main >
-  <div appComponentName appHighlight class="container">
+<main>
+  <div  appHighlight class="container">
     <h2>App-root</h2>
     <span class="counter">doCheck: {{ counter }}</span>
-    <div class="button-container"><button (click)="null">click</button></div>
-    <input class="text-input" type="text" [formControl]="control">
+    <div class="button-container"><button (click)="(null)">click</button></div>
+    <input class="text-input" type="text" [formControl]="control" />
   </div>
-  
-  <div class="children">
-    <app-child1 class="child"></app-child1>
+
+  <div  class="children">
+    <app-child1 appApplicationComponent class="child"></app-child1>
     <app-child2 [obj]="obj" class="child"></app-child2>
   </div>
-  
 </main>

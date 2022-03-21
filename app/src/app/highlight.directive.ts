@@ -17,12 +17,17 @@ export class HighlightDirective implements DoCheck {
   ) {}
 
   ngDoCheck(): void {
-    
-    this.renderer.addClass(this.el.nativeElement, 'highlight');
-    this.ngZone.runOutsideAngular(() => {
-      setTimeout(() => {
-        this.renderer.removeClass(this.el.nativeElement, 'highlight');
-      }, 50);
-    });
+    if (this.el.nativeElement.classList.contains('highlight') === false) {
+      this.renderer.removeClass(this.el.nativeElement, 'highlight2');
+      this.renderer.addClass(this.el.nativeElement, 'highlight');
+    } else {
+      this.renderer.removeClass(this.el.nativeElement, 'highlight');
+      this.renderer.addClass(this.el.nativeElement, 'highlight2');
+    }
+    // this.ngZone.runOutsideAngular(() => {
+    //   setTimeout(() => {
+    //     this.renderer.removeClass(this.el.nativeElement, 'highlight');
+    //   }, 1000);
+    // });
   }
 }

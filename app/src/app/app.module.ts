@@ -11,7 +11,6 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { PlayersEffects } from './store/effects/players.effects';
 import { MaterialModule } from './material/material.module';
-import { GameComponent } from './game/game.component';
 import { OnlineEffects } from './store/effects/online.effects';
 import { LetModule, PushModule } from '@rx-angular/template';
 import { Child1Component } from './child1/child1.component';
@@ -23,10 +22,10 @@ import { ComponentNameDirective } from './component-name.directive';
 import { Child5Component } from './child5/child5.component';
 import { Child6Component } from './child6/child6.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ApplicationComponentDirective } from './application-component.directive';
 @NgModule({
   declarations: [
     AppComponent,
-    GameComponent,
     Child1Component,
     Child2Component,
     Child3Component,
@@ -35,6 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ComponentNameDirective,
     Child5Component,
     Child6Component,
+    ApplicationComponentDirective,
   ],
   imports: [
     LetModule,
